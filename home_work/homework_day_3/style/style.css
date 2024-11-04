@@ -3,13 +3,17 @@ html {
 }
 body {
   background-color: #e5e5e5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 900px;
 }
 
 .margin-bottom {
   margin-bottom: 32px;
 }
 
-.razer_item {
+.razer-item {
   background-color: #ffffff;
   width: 887px;
   height: 661px;
@@ -48,9 +52,6 @@ body {
   display: inline-block;
 }
 
-.product_intro {
-}
-
 .freeship {
   background-color: #191847;
   color: #ffffff;
@@ -62,7 +63,7 @@ body {
   text-align: center;
 }
 
-.price_original {
+.price-original {
   font-size: 18px;
   text-decoration: line-through;
   margin: 0;
@@ -81,18 +82,19 @@ body {
   opacity: 0.7;
 }
 
-.btn_cart {
+.btn-cart {
   width: 442px;
   height: 59px;
   background-color: #4788e9;
   color: #ffffff;
+  border: 0;
   border-radius: 10px;
   box-shadow: 0 7px 0 0 #1767dd;
   font-size: 18px;
   font-weight: 400;
 }
 
-.btn_cart:hover {
+.btn-cart:hover {
   background-color: #7da3dd;
 }
 
@@ -101,22 +103,24 @@ body {
   color: #000000;
 }
 
-.product_icon {
+.product-icon {
   width: 13px;
   height: 13px;
+  color: #00d98b;
 }
 
-.btn_form {
+.btn-form {
   display: flex;
   font-size: 18px;
   span {
     font-size: 18px;
     font-weight: 100;
     vertical-align: super;
+    color: #191847;
   }
 }
 
-.btn_form_card {
+.btn-form-card {
   padding-right: 16px;
 }
 
@@ -127,14 +131,18 @@ body {
   height: 64px;
   border-radius: 14px;
   border: 1px solid #c9c9da;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
 }
 
 .card:hover {
   background-color: #f5e8e8;
 }
 
-.imgs_card,
-.imgs_whishlish {
+.imgs-card,
+.imgs-whishlish {
   width: 32px;
   height: 32px;
 }
