@@ -1,0 +1,140 @@
+html {
+  font-family: "Poppins", serif;
+}
+body {
+  background-color: #e5e5e5;
+}
+
+.margin-bottom {
+  margin-bottom: 32px;
+}
+
+.razer_item {
+  background-color: #ffffff;
+  width: 887px;
+  height: 661px;
+  border-radius: 15px;
+  box-shadow: 0 26px 30px 12px rgb(184, 179, 217, 0.03);
+  margin: auto;
+}
+
+.information {
+  display: flex;
+  padding: 82px;
+}
+
+.content {
+  width: 723px;
+  height: 497px;
+  margin-left: 32px;
+}
+
+.content .intro {
+  color: #191847;
+  font-size: 24px;
+  width: 419px;
+  height: 72px;
+  margin: 0;
+}
+
+.imgs {
+  width: 249px;
+  height: 223px;
+  margin-top: 14px;
+}
+
+.imgs,
+.content {
+  display: inline-block;
+}
+
+.product_intro {
+}
+
+.freeship {
+  background-color: #191847;
+  color: #ffffff;
+  border-radius: 20px;
+  width: 112px;
+  height: 29px;
+  line-height: 29px;
+  font-size: 14px;
+  text-align: center;
+}
+
+.price_original {
+  font-size: 18px;
+  text-decoration: line-through;
+  margin: 0;
+}
+
+.price {
+  font-size: 48px;
+  font-weight: 800;
+  margin: 0;
+}
+
+.desc {
+  font-size: 14px;
+  color: #191847;
+  font-weight: 200;
+  opacity: 0.7;
+}
+
+.btn_cart {
+  width: 442px;
+  height: 59px;
+  background-color: #4788e9;
+  color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 7px 0 0 #1767dd;
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.btn_cart:hover {
+  background-color: #7da3dd;
+}
+
+.stock span {
+  font-size: 14px;
+  color: #000000;
+}
+
+.product_icon {
+  width: 13px;
+  height: 13px;
+}
+
+.btn_form {
+  display: flex;
+  font-size: 18px;
+  span {
+    font-size: 18px;
+    font-weight: 100;
+    vertical-align: super;
+  }
+}
+
+.btn_form_card {
+  padding-right: 16px;
+}
+
+.card,
+.whishlish {
+  padding: 16px;
+  width: 213px;
+  height: 64px;
+  border-radius: 14px;
+  border: 1px solid #c9c9da;
+}
+
+.card:hover {
+  background-color: #f5e8e8;
+}
+
+.imgs_card,
+.imgs_whishlish {
+  width: 32px;
+  height: 32px;
+}
