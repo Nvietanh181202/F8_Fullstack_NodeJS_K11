@@ -38,7 +38,7 @@ body {
   font-size: 24px;
   width: 419px;
   height: 72px;
-  margin: 0;
+  margin: 0 0 32px 0;
 }
 
 .imgs {
@@ -61,15 +61,18 @@ body {
   line-height: 29px;
   font-size: 14px;
   text-align: center;
+  margin-bottom: 10px;
 }
 
 .price-original {
   font-size: 18px;
   text-decoration: line-through;
   margin: 0;
+  color: #191847;
 }
 
 .price {
+  color: #191847;
   font-size: 48px;
   font-weight: 800;
   margin: 0;
@@ -79,7 +82,8 @@ body {
   font-size: 14px;
   color: #191847;
   font-weight: 200;
-  opacity: 0.7;
+  opacity: 0.6;
+  margin: 0;
 }
 
 .btn-cart {
@@ -101,6 +105,12 @@ body {
 .stock span {
   font-size: 14px;
   color: #000000;
+}
+
+.stock p {
+  margin: 0;
+  display: flex;
+  align-items: center;
 }
 
 .product-icon {
@@ -130,7 +140,7 @@ body {
   width: 213px;
   height: 64px;
   border-radius: 14px;
-  border: 1px solid #c9c9da;
+  border: 2px solid #c9c9da;
   display: flex;
   justify-content: center;
   align-items: center;
