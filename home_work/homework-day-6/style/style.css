@@ -71,13 +71,12 @@ ul li a:hover {
   font-weight: 700;
 }
 
-.coffee-container {
+.content-intro {
   display: flex;
-  column-gap: 32px;
   padding-top: 32px;
 }
 
-.coffee-container .coffee-content:nth-child(2) {
+.content-intro .coffee-content:nth-child(2) {
   flex-direction: column-reverse;
 }
 

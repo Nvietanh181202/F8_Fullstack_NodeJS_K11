@@ -1,0 +1,93 @@
+/* Common: Begin */
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Sen:wght@400..800&display=swap");
+
+* {
+  font-family: "Sen", sans-serif;
+}
+
+body {
+  width: 1440px;
+}
+
+.padding-right-42 {
+  padding-right: 42px;
+}
+
+.padding-right-70 {
+  padding-right: 70px;
+}
+/* Common: End */
+
+.container {
+  background-color: #fffcf4;
+  padding: 36px 135px 64px;
+}
+
+/* Header: Begin */
+
+.header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.header-logo,
+.header-logo span {
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.header-logo {
+  display: flex;
+  align-items: center;
+}
+
+.header-logo span {
+  color: #ffb900;
+}
+
+.header-logo a {
+  text-decoration: none;
+  color: #171100;
+}
+
+nav {
+  display: flex;
+}
+
+nav ul {
+  display: flex;
+}
+
+nav ul li {
+  display: flex;
+  align-items: center;
+}
+
+ul li a {
+  text-decoration: none;
+  color: #5f5b53;
+  font-size: 16px;
+  line-height: 28px;
+}
+
+ul li .active {
+  color: #171100;
+  font-weight: 600;
+}
+
+.header button {
+  background-color: #171100;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 600;
+  padding: 11px 41px;
+  border-radius: 24.5px;
+}
+
+/* Main: Begin */
+
+.infor {
+  display: flex;
+  padding-top: 72px;
+}
