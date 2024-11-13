@@ -46,6 +46,7 @@ a {
   display: flex;
   align-items: center;
   font-family: "Sen", sans-serif;
+  line-height: 34px;
 }
 
 .header-logo span {
@@ -89,6 +90,7 @@ ul li .active {
   font-weight: 600;
   padding: 11px 41px;
   border-radius: 24.5px;
+  line-height: 28px;
 }
 
 /* Header: End */
@@ -110,17 +112,21 @@ ul li .active {
   font-size: 58px;
   font-weight: 700;
   padding: 64px 0 22px 0;
+  line-height: 68px;
+  letter-spacing: -2px;
 }
 
 .infor-content p {
   color: #5f5b53;
   font-size: 18px;
   padding-bottom: 38px;
+  line-height: 30px;
 }
 
 .btn {
   display: flex;
   margin-bottom: 48px;
+  line-height: 30px;
 }
 
 .btn .btn-courses {
@@ -129,6 +135,7 @@ ul li .active {
   background-color: #ffb900;
   color: #fff;
   font-size: 18px;
+  font-weight: 600;
   padding: 17px 34px;
   margin-right: 28px;
   border: 1px solid transparent;
@@ -166,6 +173,7 @@ ul li .active {
   color: #5f5b53;
   font-size: 18px;
   margin-bottom: 8px;
+  line-height: 30px;
 }
 
 .starts {
@@ -175,12 +183,18 @@ ul li .active {
   gap: 29px;
 }
 
+.starts-quantity,
+.starts-student {
+  line-height: 30px;
+}
+
 .starts-quantity {
   font-family: "Sen", sans-serif;
   color: #171100;
   font-size: 44px;
   font-weight: 700;
   margin-right: 6px;
+  line-height: 54px;
 }
 
 /* Main: End */
