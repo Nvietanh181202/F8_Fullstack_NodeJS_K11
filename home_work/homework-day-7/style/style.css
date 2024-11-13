@@ -3,11 +3,14 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Sen:wght@400..800&display=swap");
 
 * {
-  font-family: "Sen", sans-serif;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", serif;
 }
 
-body {
-  width: 1440px;
+a {
+  text-decoration: none;
 }
 
 .padding-right-42 {
@@ -21,7 +24,9 @@ body {
 
 .container {
   background-color: #fffcf4;
+  width: 1440px;
   padding: 36px 135px 64px;
+  margin: 0 auto;
 }
 
 /* Header: Begin */
@@ -40,6 +45,7 @@ body {
 .header-logo {
   display: flex;
   align-items: center;
+  font-family: "Sen", sans-serif;
 }
 
 .header-logo span {
@@ -47,12 +53,12 @@ body {
 }
 
 .header-logo a {
-  text-decoration: none;
   color: #171100;
 }
 
 nav {
   display: flex;
+  font-family: "Poppins", serif;
 }
 
 nav ul {
@@ -85,9 +91,96 @@ ul li .active {
   border-radius: 24.5px;
 }
 
+/* Header: End */
+
 /* Main: Begin */
 
 .infor {
   display: flex;
   padding-top: 72px;
 }
+
+.infor-banner {
+  padding-right: 230px;
+}
+
+.infor-content h1 {
+  font-family: "Sen", sans-serif;
+  color: #171100;
+  font-size: 58px;
+  font-weight: 700;
+  padding: 64px 0 22px 0;
+}
+
+.infor-content p {
+  color: #5f5b53;
+  font-size: 18px;
+  padding-bottom: 38px;
+}
+
+.btn {
+  display: flex;
+  margin-bottom: 48px;
+}
+
+.btn .btn-courses {
+  display: flex;
+  align-items: center;
+  background-color: #ffb900;
+  color: #fff;
+  font-size: 18px;
+  padding: 17px 34px;
+  margin-right: 28px;
+  border: 1px solid transparent;
+  border-radius: 32px;
+}
+
+.btn-watch-video {
+  display: flex;
+  align-items: center;
+}
+
+.btn-icon-video {
+  background-color: #fff;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  box-shadow: 0 0 16px 0 rgba(0, 0, 0, 0.2);
+  margin-right: 14px;
+}
+
+.btn-link-video a {
+  color: #171100;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.data {
+  display: flex;
+}
+
+.data span {
+  color: #5f5b53;
+  font-size: 18px;
+  margin-bottom: 8px;
+}
+
+.starts {
+  display: flex;
+  color: #5f5b53;
+  font-size: 18px;
+  gap: 29px;
+}
+
+.starts-quantity {
+  font-family: "Sen", sans-serif;
+  color: #171100;
+  font-size: 44px;
+  font-weight: 700;
+  margin-right: 6px;
+}
+
+/* Main: End */
