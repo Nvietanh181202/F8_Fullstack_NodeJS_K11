@@ -25,10 +25,6 @@ a {
   cursor: pointer;
 }
 
-.btn-active {
-  background: #ffb900;
-}
-
 .padding-right-42 {
   padding-right: 42px;
 }
@@ -49,8 +45,6 @@ a {
 
 .header {
   background-color: #fffcf4;
-  display: flex;
-  justify-content: space-between;
   padding: 47px 135px 0;
   margin-top: 36px;
 }
@@ -252,8 +246,6 @@ ul li .active {
 }
 
 .course-introduct {
-  display: flex;
-  justify-content: space-between;
   margin-bottom: 55px;
 }
 
@@ -275,27 +267,40 @@ ul li .active {
 
 .controller {
   display: flex;
+  gap: 18px;
   align-items: center;
-}
-
-.controller a {
-  width: 40px;
-  height: 40px;
 }
 
 .controller .controller-active {
   margin-left: 10px;
 }
 
-.course-list {
+.controller a {
   display: flex;
-  justify-content: space-between;
+  background-color: #fff;
+  color: #ffb900;
+  width: 40px;
+  height: 40px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid;
+  border-radius: 50%;
+}
+
+.controller a:hover {
+  background-color: #ffb900;
+  color: #fff;
 }
 
 .course-card {
   width: 370px;
   border-radius: 12px;
   background: #fff;
+  border: 1px solid #e2dfda;
+}
+
+.course-card:hover {
+  border: 1px solid transparent;
   box-shadow: 0px 18px 36px 0px rgba(0, 0, 0, 0.05);
 }
 
@@ -313,8 +318,6 @@ ul li .active {
 }
 
 .course-rating {
-  display: flex;
-  justify-content: space-between;
   padding: 12px 22px 6px;
 }
 
@@ -327,15 +330,27 @@ ul li .active {
   line-height: 30px;
 }
 
-.price-btn {
+.rating {
   display: flex;
-  justify-content: space-between;
+  color: #fea31b;
+  align-items: center;
+}
+
+.rating span {
+  padding-left: 6px;
+}
+
+.price-btn {
   margin: 0 22px 22px;
 }
 
 .price {
   display: flex;
-  align-items: flex-end;
+  color: #171100;
+  align-items: center;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 30px;
 }
 
 .btn-book {
@@ -345,6 +360,19 @@ ul li .active {
   font-weight: 600;
   line-height: 26px;
   padding: 12px 24px;
+}
+
+.btn-book:hover {
+  background: #ffb900;
+}
+
+.header,
+.course-introduct,
+.course-list ul,
+.course-rating,
+.price-btn {
+  display: flex;
+  justify-content: space-between;
 }
 
 /* Main: End */
