@@ -395,7 +395,7 @@ ul li .active {
   padding-bottom: 18px;
 }
 
-.testimonial-infor h2 {
+.testimonial-infor .testimonial-name {
   color: #f7f7f7;
   font-family: Sen;
   font-size: 24px;
@@ -482,18 +482,24 @@ ul li .active {
   background-color: #ffb900;
 }
 
-.outcomes-imgs {
+.outcomes-images {
   display: flex;
   gap: 30px;
 }
 
-.outcomes-imgs .learning-1 {
-  margin-top: 32px;
+.outcomes-img {
+  width: 270px;
+  height: 405px;
+}
+
+.outcomes-img:first-child {
+  margin-top: 34px;
 }
 
 .catalog {
   display: flex;
   margin: 200px 0;
+  align-items: center;
 }
 
 .outcomes-content h2,
