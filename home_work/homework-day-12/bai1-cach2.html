@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Grid-layout-Cach2</title>
+    <link rel="stylesheet" href="./assets/style/bai1.css" />
+    <style>
+      * {
+        box-sizing: border-box;
+        padding: 0;
+        margin: 0;
+      }
+
+      .container {
+        display: grid;
+        grid-template-areas:
+          "header header header"
+          "left main right"
+          "left sub right"
+          "footer footer footer";
+
+        grid-template-columns: 1fr 2fr 1fr;
+        grid-template-rows: 50px minmax(80vh, 1fr) minmax(30px, 0.2fr) 50px;
+
+        width: 500px;
+        height: 94vh;
+        border: 1px solid;
+        margin: 0 auto;
+      }
+
+      .items {
+        text-align: center;
+        border: 1px dashed #ccc;
+      }
+
+      .header {
+        grid-area: header;
+      }
+
+      .left {
+        grid-area: left;
+      }
+
+      .right {
+        grid-area: right;
+      }
+
+      .sub {
+        grid-area: sub;
+      }
+
+      .footer {
+        grid-area: footer;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <header class="header items">Header</header>
+      <div class="left items">Left content</div>
+      <div class="main items">Main content</div>
+      <div class="sub items">Sub content</div>
+      <div class="right items">Right content</div>
+      <footer class="footer items">Footer</footer>
+    </div>
+  </body>
+</html>

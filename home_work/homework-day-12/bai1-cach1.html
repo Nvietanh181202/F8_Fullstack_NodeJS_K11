@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Grid-layout-Cach1</title>
+    <style>
+      .container {
+        display: grid;
+        grid-template-columns: 1fr 2fr 1fr;
+        grid-template-rows: auto 1fr auto;
+        width: 500px;
+        height: 80vh;
+        border: 1px solid #000;
+        margin: 0 auto;
+      }
+
+      .items {
+        text-align: center;
+        border: 1px dashed #000;
+      }
+      .header {
+        grid-column: 1 / 4;
+      }
+
+      .sub {
+        grid-column: 2 / 3;
+      }
+
+      .footer {
+        grid-column: 1 / 4;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <header class="header items">Header</header>
+      <div class="left items">Left-content</div>
+      <div class="main items">Main-content</div>
+      <div class="right items">Right-content</div>
+      <div class="sub items">Sub-content</div>
+      <footer class="footer items">Footer</footer>
+    </div>
+  </body>
+</html>
