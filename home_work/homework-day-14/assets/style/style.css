@@ -1,4 +1,6 @@
 /* Common: Begin */
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+
 * {
   box-sizing: border-box;
   padding: 0;
@@ -6,7 +8,7 @@
 }
 
 body {
-  max-width: 1170px;
+  font-family: "Montserrat", sans-serif;
   margin: 0 auto;
 }
 
@@ -26,19 +28,27 @@ a {
 /* Header: Begin */
 .header {
   position: relative;
-  justify-content: space-between;
   align-items: center;
   height: 32px;
-  padding: 30px 80px;
+  padding: 30px 150px;
+}
+
+.header-menu {
+  flex-grow: 1;
+  margin-left: 40px;
 }
 
 .header-menu__item {
   gap: 16px;
+  align-items: center;
 }
 
-.header-logo,
-.header-menu__item a {
+.header-logo a,
+.header-menu__item span {
   color: #333f48;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 40px;
 }
 
 .header-menu__item li:hover .submenu {
@@ -50,8 +60,8 @@ a {
   width: 100%;
   height: 32px;
   position: absolute;
+  top: 36px;
   left: 0;
-  bottom: 0;
 }
 
 .submenu {
@@ -63,20 +73,37 @@ a {
   border-top: 1px solid #e6e7e8;
   padding: 0 80px;
   display: none;
+  transition: all ease-in-out 0.3;
+}
+
+.submenu a:hover {
+  color: #da291c;
 }
 
 .submenu-content {
   padding-left: 105px;
 }
 
+.submenu-content a {
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 400;
+}
+
+.submenu .title,
+.submenu-mid-right-lable span {
+  font-size: 14px;
+  font-weight: 700;
+}
+
 .submenu-left {
   width: 13.87%;
-  padding: 36px 30px 46px 0;
+  padding-top: 36px;
 }
 
 .submenu-mid {
-  width: 38.43%;
-  padding: 36px 30px 46px 30px;
+  width: 64%;
+  padding: 36px 30px 0;
 }
 
 .submenu-mid-right-lable {
@@ -106,8 +133,13 @@ a {
 }
 
 .submenu-right {
-  margin-left: 8.27%;
-  padding: 36px 0 46px 0;
+  margin-left: 60px;
+  padding-top: 36px;
+}
+
+.submenu-content li a {
+  color: #333f48;
+  display: inline-block;
 }
 
 .header-search {
@@ -118,12 +150,32 @@ a {
 
 .search-btn {
   position: absolute;
-  top: 6px;
-  left: 12px;
+  top: 9px;
+  left: 18px;
+  border: none;
+  background: transparent;
+  font-size: 24px;
 }
 
 .search-input {
-  border: none;
+  height: 40px;
+  background-color: #fff;
+  border: 1px solid #edf1f5;
+  border-radius: 40px;
+  width: 100%;
   padding: 8px 8px 8px 56px;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 22px;
+  color: #333f48;
+  outline: 0;
+}
+
+.header-groud-icon {
+  display: flex;
+  justify-content: flex-end;
+  min-width: 275px;
+  gap: 16px;
+  margin-left: 16px;
 }
 /* Header: End */
