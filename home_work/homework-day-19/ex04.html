@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function bmi(weight, height) {
+        let calcBmi = weight / (height * height);
+
+        if (calcBmi < 18.5) {
+          return `Số BMI của bạn = ${calcBmi}, nên bạn thiếu cân.`;
+        } else if (calcBmi >= 18.5 && calcBmi < 23) {
+          return `Số BMI của bạn = ${calcBmi}, nên bạn bình thường.`;
+        } else if (calcBmi >= 23 && calcBmi < 25) {
+          return `Số BMI của bạn = ${calcBmi}, nên bạn thừa cân.`;
+        } else if (calcBmi >= 25) {
+          return `Số BMI của bạn = ${calcBmi}, nên bạn béo phì.`;
+        } else {
+          return `Dữ liệu không hợp lệ.`;
+        }
+      }
+
+      const weight = parseFloat(prompt("Nhập cân nặng (kg):"));
+      const height = parseFloat(prompt("Nhập chiều cao (m):"));
+      alert(bmi(weight, height));
+    </script>
+  </body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>B3: 3 cạnh của tam giác</title>
+  </head>
+  <body>
+    <script>
+      let a = prompt("Nhập cạnh a:");
+      let b = prompt("Nhập cạnh b");
+      let c = prompt("Nhập cạnh c");
+      function isTriangle(a, b, c) {
+        if (a <= 0 || b <= 0 || c <= 0) {
+          return `Có cạnh không lớn hơn 0 nên không thể tạo thành 1 tam giác`;
+        }
+        if (a + b <= c || a + c <= b || b + c <= a) {
+          return `Tổng 2 cạnh nhỏ hơn hoặc bằng 1 cạnh còn lại nên không thể tạo thành 1 tam giác`;
+        }
+        if (a === b && b === c) {
+          return `Đây là 1 tam giác đều`;
+        }
+        if (a === b || b === c || a === c) {
+          return `Đây là 1 tam giác cân`;
+        }
+      }
+
+      alert(isTriangle(a, b, c));
+    </script>
+  </body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>B2: Tính Tiền Điện</title>
+  </head>
+  <body>
+    <script>
+      function calculateElectricityBill() {
+        let totalCost = prompt("Nhập số điện đã sử dụng (kWh):");
+
+        if (totalCost > 0 && totalCost <= 50) {
+          return `Số tiền điện của bạn là: ${totalCost * 1678} đồng`;
+        } else if (totalCost > 50 && totalCost <= 100) {
+          return `Số tiền điện của bạn là: ${totalCost * 1734} đồng`;
+        } else if (totalCost > 100 && totalCost <= 200) {
+          return `Số tiền điện của bạn là: ${totalCost * 2014} đồng`;
+        } else if (totalCost > 200 && totalCost <= 300) {
+          return `Số tiền điện của bạn là: ${totalCost * 2536} đồng`;
+        } else if (totalCost > 300 && totalCost <= 400) {
+          return `Số tiền điện của bạn là: ${totalCost * 2834} đồng`;
+        } else {
+          return `Số tiền điện của bạn là: ${totalCost * 2927} đồng`;
+        }
+      }
+      alert(calculateElectricityBill());
+    </script>
+  </body>
+</html>
