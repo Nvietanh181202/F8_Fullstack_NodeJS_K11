@@ -7,24 +7,49 @@
   </head>
   <body>
     <script>
-      function calculateElectricityBill() {
-        let totalCost = prompt("Nhập số điện đã sử dụng (kWh):");
+      let totalCost = parseFloat(prompt("Nhập số điện đã sử dụng (kWh):"));
 
-        if (totalCost > 0 && totalCost <= 50) {
-          return `Số tiền điện của bạn là: ${totalCost * 1678} đồng`;
-        } else if (totalCost > 50 && totalCost <= 100) {
-          return `Số tiền điện của bạn là: ${totalCost * 1734} đồng`;
-        } else if (totalCost > 100 && totalCost <= 200) {
-          return `Số tiền điện của bạn là: ${totalCost * 2014} đồng`;
-        } else if (totalCost > 200 && totalCost <= 300) {
-          return `Số tiền điện của bạn là: ${totalCost * 2536} đồng`;
-        } else if (totalCost > 300 && totalCost <= 400) {
-          return `Số tiền điện của bạn là: ${totalCost * 2834} đồng`;
-        } else {
-          return `Số tiền điện của bạn là: ${totalCost * 2927} đồng`;
+      if (
+        totalCost <= 0 ||
+        isNaN(totalCost) ||
+        typeof totalCost === "string" ||
+        totalCost == "Infinty"
+      ) {
+        alert("Vui lòng nhập số điện chính xác");
+      } else {
+        function calculateElectricityBill() {
+          let electricityBill = 0;
+
+          if (totalCost <= 50) {
+            electricityBill = totalCost * 1678;
+          } else if (totalCost <= 100) {
+            electricityBill = 50 * 1678 + (totalCost - 50) * 1734;
+          } else if (totalCost <= 200) {
+            electricityBill = 50 * 1678 + 50 * 1734 + (totalCost - 100) * 2014;
+          } else if (totalCost <= 300) {
+            electricityBill =
+              50 * 1678 + 50 * 1734 + 100 * 2014 + (totalCost - 200) * 2536;
+          } else if (totalCost <= 400) {
+            electricityBill =
+              50 * 1678 +
+              50 * 1734 +
+              100 * 2014 +
+              100 * 2563 +
+              (totalCost - 300) * 2834;
+          } else {
+            electricityBill =
+              50 * 1678 +
+              50 * 1734 +
+              100 * 2014 +
+              100 * 2563 +
+              100 * 2834 +
+              (totalCost - 400) * 2927;
+          }
+          return electricityBill;
         }
+        electricityBill = calculateElectricityBill(totalCost);
+        alert(`Số tiền điện là: ${electricityBill} VND`);
       }
-      alert(calculateElectricityBill());
     </script>
   </body>
 </html>

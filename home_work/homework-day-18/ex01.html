@@ -7,22 +7,41 @@
   </head>
   <body>
     <script>
-      function tax() {
-        let salary = prompt("Nhập số tiền lương của bạn (Triệu đồng)");
-        if (salary > 0 && salary <= 11) {
-          return `Không tính thuế`;
-        } else if (salary > 11 && salary <= 25) {
-          return `Tiền thuế của bạn là: ${salary * 0.05} triệu đồng`;
-        } else if (salary > 25 && salary <= 50) {
-          return `Tiền thuế của bạn là: ${salary * 0.1} triệu đồng`;
-        } else if (salary > 50 && salary <= 80) {
-          return `Tiền thuế của bạn là: ${salary * 0.2} triệu đồng`;
-        } else {
-          return `Tiền thuế của bạn là: ${salary * 0.3} triệu đồng`;
+      let salary = parseFloat(
+        prompt("Nhập số tiền lương của bạn (Triệu Đồng)")
+      );
+      if (
+        salary <= 0 ||
+        isNaN(salary) ||
+        typeof salary === "string" ||
+        salary == "Infinty"
+      ) {
+        alert("Số tiền không hợp lệ");
+      } else {
+        function calc_tax(salary) {
+          let tax = 0;
+          if (salary <= 11) {
+            tax = 0;
+          } else if (salary <= 25000000) {
+            tax = (salary - 11000000) * 0.05;
+          } else if (salary <= 50000000) {
+            tax = (25000000 - 11000000) * 0.05 + (salary - 25000000) * 0.1;
+          } else if (salary <= 80000000) {
+            tax =
+              (25000000 - 11000000) * 0.05 +
+              (50000000 - 25000000) * 0.1 +
+              (salary - 50000000) * 0.2;
+          } else {
+            tax =
+              (25000000 - 11000000) * 0.05 +
+              (50000000 - 25000000) * 0.1 +
+              (80000000 - 50000000) * 0.2 +
+              (salary - 80000000) * 0.3;
+          }
+          return `Số tiền thuế của bạn là: ${tax}`;
         }
+        alert(calc_tax(salary));
       }
-
-      alert(tax());
     </script>
   </body>
 </html>
