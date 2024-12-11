@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>B1: In ra số chính phương</title>
+  </head>
+  <body>
+    <script>
+      function printSquareNumber() {
+        let n = parseFloat(prompt("Nhập n: "));
+
+        if (n <= 0 || isNaN(n) || !isFinite(n)) {
+          console.log("Dữ liệu không hợp lệ");
+          return;
+        }
+
+        console.log(`Các số chính phương từ 0 đến ${n} là:`);
+
+        for (let i = 0; i * i <= n; i++) {
+          console.log(i * i);
+        }
+      }
+      printSquareNumber();
+    </script>
+  </body>
+</html>
