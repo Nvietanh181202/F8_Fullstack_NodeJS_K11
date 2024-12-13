@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const students = [
+        { name: "Nguyen Van A", score: 9 },
+        { name: "Tran Thi B", score: 7 },
+        { name: "Le Van C", score: 5 },
+        { name: "Pham Thi D", score: 3 },
+        { name: "Doan Van E", score: 10 },
+        { name: "Hoang Thi F", score: 6 },
+      ];
+
+      function processStudents(students) {
+        const result = {
+          highest: students[0],
+          lowest: students[0],
+          group: {
+            A: [],
+            B: [],
+            C: [],
+            D: [],
+          },
+        };
+        for (let i = 0; i < students.length; i++) {
+          const student = students[i];
+
+          // Tìm học sinh có số điểm cao nhất
+          if (student.result > result.highest.score) {
+            result.highest = student;
+          }
+          // Tìm học sinh có số điểm thâp nhất
+
+          if (student.result < result.lowest.score) {
+            result.lowest = student;
+          }
+
+          // Lọc học sinh có khoảng điểm
+          if (student.score >= 8 && student.score <= 10) {
+            result.group.A.push(student);
+          } else if (student.score >= 6 && student.score < 8) {
+            result.group.B.push(student);
+          } else if (student.score >= 4 && student.score < 6) {
+            result.group.C.push(student);
+          } else {
+            result.group.D.push(student);
+          }
+        }
+        return result;
+      }
+      const result = processStudents(students);
+      console.log(result);
+    </script>
+  </body>
+</html>
