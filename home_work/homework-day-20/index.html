@@ -29,18 +29,13 @@
         };
         for (let i = 0; i < students.length; i++) {
           const student = students[i];
-
-          // Tìm học sinh có số điểm cao nhất
-          if (student.result > result.highest.score) {
+          if (student.score > result.highest.score) {
             result.highest = student;
           }
-          // Tìm học sinh có số điểm thâp nhất
-
-          if (student.result < result.lowest.score) {
+          if (student.score < result.lowest.score) {
             result.lowest = student;
           }
 
-          // Lọc học sinh có khoảng điểm
           if (student.score >= 8 && student.score <= 10) {
             result.group.A.push(student);
           } else if (student.score >= 6 && student.score < 8) {
