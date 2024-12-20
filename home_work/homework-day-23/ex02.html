@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const categories = [
+        {
+          id: 1,
+          name: "Electronics",
+          children: [
+            {
+              id: 2,
+              name: "Laptops",
+              children: [
+                {
+                  id: 3,
+                  name: "Apple",
+                },
+                {
+                  id: 4,
+                  name: "Dell",
+                },
+              ],
+            },
+            {
+              id: 5,
+              name: "Headphones",
+            },
+          ],
+        },
+        {
+          id: 6,
+          name: "Books",
+          children: [
+            {
+              id: 7,
+              name: "Fiction",
+              children: [
+                {
+                  id: 8,
+                  name: "Thrillers",
+                },
+                {
+                  id: 9,
+                  name: "Mystery",
+                },
+              ],
+            },
+            {
+              id: 10,
+              name: "Non-Fiction",
+            },
+          ],
+        },
+      ];
+
+      const flattenCategories = (categories, level = 0) => {
+        var flatArray = [];
+        for (const category of categories) {
+          flatArray.push({ id: category.id, name: category.name, level });
+          if (category.children) {
+            flatArray = flatArray.concat(
+              flattenCategories(category.children, level + 1)
+            );
+          }
+        }
+        return flatArray;
+      };
+
+      const getCategoryName = (categories, categoryId) => {
+        const category = categories.find((item) => {
+          return item.id === categoryId;
+        });
+
+        return category ? category.name : null;
+      };
+
+      const flattenedCategories = flattenCategories(categories);
+      console.log(flattenedCategories);
+      console.log(getCategoryName(categories, 3));
+      console.log(getCategoryName(categories, 10));
+      console.log(getCategoryName(categories, 99));
+    </script>
+  </body>
+</html>

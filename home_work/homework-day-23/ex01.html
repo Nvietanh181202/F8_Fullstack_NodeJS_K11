@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const products = [
+        {
+          id: 1,
+          name: "Apple iPhone 12",
+          price: 1000,
+        },
+        {
+          id: 2,
+          name: "Samsung Galaxy S21",
+          price: 900,
+        },
+        {
+          id: 3,
+          name: "Xiaomi Mi 11",
+          price: 800,
+        },
+        {
+          id: 4,
+          name: "Apple iPhone 11",
+          price: 700,
+        },
+        {
+          id: 5,
+          name: "Samsung Galaxy S20",
+          price: 600,
+        },
+        {
+          id: 6,
+          name: "Xiaomi Mi 10",
+          price: 500,
+        },
+      ];
+
+      const getTopProduct = (products, top) => {
+        const resultProduct = [];
+
+        products.forEach((product) => {
+          for (let i = 0; i <= resultProduct.length; i++) {
+            if (
+              i === resultProduct.length ||
+              product.price > resultProduct[i].price
+            ) {
+              resultProduct.splice(i, 0, product);
+              break;
+            }
+          }
+
+          if (resultProduct.length > top) {
+            resultProduct.pop();
+          }
+        });
+        return resultProduct;
+      };
+
+      const result = getTopProduct(products, 3);
+      console.log(result);
+    </script>
+  </body>
+</html>
