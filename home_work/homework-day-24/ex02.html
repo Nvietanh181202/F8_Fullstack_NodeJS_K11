@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Viết hàm in ra dãy fibonacci với số phần tử nhập vào từ bàn phím</h1>
+    <script>
+      function fibonacci(n) {
+        if (typeof n !== "number" || n <= 0 || !Number.isInteger(n)) {
+          console.log("Số phần tử không hợp lệ");
+          return;
+        }
+        const result = Array(n)
+          .fill(0)
+          .reduce((acc, cur, index) => {
+            if (index === 0) {
+              acc.push(0);
+            } else if (index === 1) {
+              acc.push(1);
+            } else {
+              acc.push(acc[index - 1] + acc[index - 2]);
+            }
+            return acc;
+          }, []);
+        console.log(result.join(" "));
+      }
+
+      fibonacci(5); // 0 1 1 2 3
+
+      fibonacci(10); // 0 1 1 2 3 5 8 13 21 34
+
+      fibonacci(0); // Số phần tử không hợp lệ
+
+      fibonacci(-5); // Số phần tử không hợp lệ
+
+      fibonacci("abc"); // Số phần tử không hợp lệ
+
+      fibonacci(1); // 0
+    </script>
+  </body>
+</html>

@@ -59,6 +59,10 @@
       ];
 
       const flattenCategories = (categories, level = 0) => {
+        if (!Array.isArray(categories)) {
+          console.log("Sai dữ liệu");
+          return;
+        }
         var flatArray = [];
         for (const category of categories) {
           flatArray.push({ id: category.id, name: category.name, level });
@@ -71,7 +75,13 @@
         return flatArray;
       };
 
+      console.log(flattenCategories(categories));
+
       const getCategoryName = (categories, categoryId) => {
+        if (!Array.isArray(categoryId)) {
+          console.log("Sai dữ liệu");
+          return;
+        }
         const category = categories.find((item) => {
           return item.id === categoryId;
         });
@@ -79,9 +89,6 @@
         return category ? category.name : null;
       };
 
-      const flattenedCategories = flattenCategories(categories);
-
-      console.log(flattenCategories(categories));
       console.log(getCategoryName(categories, 3));
       console.log(getCategoryName(categories, 10));
       console.log(getCategoryName(categories, 99));
