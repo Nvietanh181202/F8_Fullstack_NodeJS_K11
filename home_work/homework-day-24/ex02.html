@@ -10,7 +10,7 @@
     <script>
       function fibonacci(n) {
         if (typeof n !== "number" || n <= 0 || !Number.isInteger(n)) {
-          console.log("Số phần tử không hợp lệ");
+          alert("Số phần tử không hợp lệ");
           return;
         }
         const result = Array(n)
@@ -25,20 +25,23 @@
             }
             return acc;
           }, []);
-        console.log(result.join(" "));
+        alert(result.join(" "));
       }
 
-      fibonacci(5); // 0 1 1 2 3
+      const result = parseFloat(prompt("Nhập số phần tử của dãy fibonacci"));
+      fibonacci(result);
 
-      fibonacci(10); // 0 1 1 2 3 5 8 13 21 34
+      // fibonacci(5); // 0 1 1 2 3
 
-      fibonacci(0); // Số phần tử không hợp lệ
+      // fibonacci(10); // 0 1 1 2 3 5 8 13 21 34
 
-      fibonacci(-5); // Số phần tử không hợp lệ
+      // fibonacci(0); // Số phần tử không hợp lệ
 
-      fibonacci("abc"); // Số phần tử không hợp lệ
+      // fibonacci(-5); // Số phần tử không hợp lệ
 
-      fibonacci(1); // 0
+      // fibonacci("abc"); // Số phần tử không hợp lệ
+
+      // fibonacci(1); // 0
     </script>
   </body>
 </html>
