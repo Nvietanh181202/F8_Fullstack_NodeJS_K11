@@ -5,9 +5,13 @@ Năm 2015:ECMAScript 6 (ES6) ra đời,là phiên bản lớn nhất của ECMAS
 Năm 2016 - nay:Các phiên bản ECMAScript mới được ra mắt liên tục,với nhiều cải tiến và tính năng mới.Cho đến nay javaScript đã trở thành một trong số những ngôn ngữ được ưa chuộng và sử dụng nhiều nhất thế giới.`;
 
 function printHighlight(content, keyword) {
-  if (!content || !keyword) {
-    console.error("Nội dung và từ khóa không hợp lệ");
-    return;
+  if (
+    typeof content !== "string" ||
+    typeof keyword !== "string" ||
+    content.trim() === "" ||
+    keyword.trim() === ""
+  ) {
+    return "Nội dung và từ khóa không hợp lệ";
   }
   const upperContent = content.toUpperCase();
   const upperKeyword = keyword.toUpperCase();
@@ -29,9 +33,12 @@ function printHighlight(content, keyword) {
 console.log(printHighlight(jsContent, "javascript"));
 
 function fixContent(content) {
+  if (typeof content !== "string") {
+    return "Chuỗi không hợp lệ";
+  }
   content = content.replace(/([.,;:!?])(?!\s)/g, "$1 ");
   content = content.replace(/([({[<])(?!\s)/g, " $1");
-  content = content.replace(/(])}>)(?=\S)/g, "$1 ");
+  content = content.replace(/([\])}>])(?=\S)/g, "$1 ");
   content = content.replace(/\s+/g, " ").trim();
 
   document.write(content);
