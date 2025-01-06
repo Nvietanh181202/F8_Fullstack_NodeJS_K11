@@ -57,8 +57,18 @@ const categories = [
 ];
 
 function convertNested(categories, parentId = 0) {
+  if (!Array.isArray(categories)) {
+    console.log("Categories phải là một mảng");
+  }
   const nestedArray = [];
   for (const category of categories) {
+    if (category.parent === parent) {
+      let children = convertNested(categories, category.id);
+      if (children.length) {
+        category.children = children;
+      }
+      nestedArray.push(category);
+    }
     if (category.parent === parentId) {
       nestedArray.push({
         id: category.id,

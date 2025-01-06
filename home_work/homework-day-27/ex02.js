@@ -57,10 +57,11 @@ function flattenCategories(categories, parentId = 0) {
   let result = [];
   categories.forEach((category) => {
     result.push({ id: category.id, name: category.name, parentId });
-    if (category.children) {
+    if (Array.isArray(category.children) && category.children.length > 0) {
       result = result.concat(flattenCategories(category.children, category.id));
     }
   });
+  result.sort((a, b) => a.id - b.id);
   return result;
 }
 
