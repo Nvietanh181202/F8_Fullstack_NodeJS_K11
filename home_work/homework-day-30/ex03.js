@@ -1,6 +1,6 @@
 const countElements = (tagname) => {
-  if (typeof tagname !== "string" || tagname === "") {
-    return "Invalid";
+  if (typeof tagname !== "string" || tagname.trim() === "") {
+    console.log("Không phải chuỗi hợp lệ");
   }
   let elements = document.getElementsByTagName(tagname);
   return elements.length;

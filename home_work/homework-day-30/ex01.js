@@ -42,6 +42,10 @@ const menu = [
 ];
 
 const buildMenu = (menu) => {
+  if (!Array.isArray(menu) || menu.length === 0) {
+    alert("Dữ liệu không hợp lệ vui lòng thử lại!");
+    return;
+  }
   const outerMenu = document.createElement("ul");
   outerMenu.setAttribute("id", "main-menu");
   document.body.appendChild(outerMenu);
