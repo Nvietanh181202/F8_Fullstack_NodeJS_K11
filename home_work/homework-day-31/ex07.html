@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ứng dụng bé tập tính</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        background-color: #ccc;
+        display: flex;
+        justify-content: center;
+      }
+      .container {
+        width: 600px;
+        height: 400px;
+        background-color: #f9f9f9;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-top: 40px;
+        border-radius: 4px;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+      }
+      .container h1 {
+        margin-bottom: 30px;
+      }
+
+      .container,
+      .input-number {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+      .input-number,
+      #operator,
+      .caculator {
+        width: 50%;
+      }
+
+      input {
+        padding: 8px;
+      }
+
+      #operator {
+        cursor: pointer;
+        padding: 6px;
+      }
+      .caculator {
+        padding: 4px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Ứng dụng bé tập tính</h1>
+      <div class="input-number">
+        <input type="number" id="num1" placeholder="Nhập số thứ nhất" />
+        <input type="number" id="num2" placeholder="Nhập số thứ hai" />
+      </div>
+      <select id="operator">
+        <option value="+">Cộng</option>
+        <option value="-">Trừ</option>
+        <option value="*">Nhân</option>
+        <option value="/">Chia</option>
+      </select>
+      <button class="caculator" onclick="caculator()">Tính</button>
+
+      <div id="result"></div>
+    </div>
+    <script>
+      const caculator = () => {
+        const num1 = parseFloat(document.getElementById("num1").value);
+        const num2 = parseFloat(document.getElementById("num2").value);
+        const operator = document.getElementById("operator").value;
+        let result;
+
+        if (isNaN(num1) || isNaN(num2)) {
+          document.getElementById("result").innerText =
+            "Số nhập vào không hợp lệ!";
+        }
+
+        switch (operator) {
+          case "+":
+            result = num1 + num2;
+            break;
+          case "-":
+            result = num1 - num2;
+            break;
+          case "*":
+            result = num1 * num2;
+            break;
+          case "/":
+            result =
+              num2 != 0 ? (num1 / num2).toFixed(2) : "Không thể chia cho 0";
+        }
+
+        document.getElementById("result").innerText = "Kết quả: " + result;
+      };
+    </script>
+  </body>
+</html>

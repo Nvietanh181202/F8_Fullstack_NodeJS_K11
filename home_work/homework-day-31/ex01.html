@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>To-Do App</title>
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #f4f4f4;
+      }
+      .container {
+        background: white;
+        padding: 30px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        width: 500px;
+        text-align: center;
+      }
+      input {
+        padding: 5px 10px;
+        width: 80%;
+        height: 30px;
+      }
+      button {
+        width: 100px;
+        height: 44px;
+        margin: 5px;
+        padding: 5px 10px;
+        cursor: pointer;
+      }
+      #filterButtons {
+        display: flex;
+        justify-content: center;
+      }
+      .task-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 5px;
+        background: #fff;
+        margin: 5px 0;
+        border-radius: 4px;
+      }
+      .completed {
+        text-decoration: line-through;
+        color: gray;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>To-Do List</h1>
+      <input type="text" id="taskInput" placeholder="Nhập công việc..." />
+      <button id="addTaskBtn">Thêm</button>
+      <div id="filterButtons">
+        <button data-filter="all">Tất cả</button>
+        <button data-filter="completed">Hoàn thành</button>
+        <button data-filter="pending">Chưa hoàn thành</button>
+      </div>
+      <ul id="taskList"></ul>
+    </div>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const taskInput = document.getElementById("taskInput");
+        const addTaskBtn = document.getElementById("addTaskBtn");
+        const taskList = document.getElementById("taskList");
+        const filterButtons = document.getElementById("filterButtons");
+
+        loadTasks();
+
+        addTaskBtn.addEventListener("click", function () {
+          if (taskInput.value.trim() === "") return;
+          addTask(taskInput.value);
+          taskInput.value = "";
+          saveTasks();
+        });
+
+        function addTask(taskText, completed = false) {
+          const li = document.createElement("li");
+          li.classList.add("task-item");
+          if (completed) li.classList.add("completed");
+
+          const span = document.createElement("span");
+          span.textContent = taskText;
+          span.classList.add("task-text");
+
+          const editBtn = document.createElement("button");
+          editBtn.textContent = "Sửa";
+          editBtn.classList.add("edit-btn");
+          editBtn.addEventListener("click", function () {
+            const newText = prompt("Nhập nội dung mới:", span.textContent);
+            if (newText) {
+              span.textContent = newText;
+              saveTasks();
+            }
+          });
+
+          const deleteBtn = document.createElement("button");
+          deleteBtn.textContent = "Xóa";
+          deleteBtn.classList.add("delete-btn");
+          deleteBtn.addEventListener("click", function () {
+            li.remove();
+            saveTasks();
+          });
+
+          const toggleBtn = document.createElement("button");
+          toggleBtn.textContent = "Hoàn thành";
+          toggleBtn.classList.add("toggle-btn");
+          toggleBtn.addEventListener("click", function () {
+            li.classList.toggle("completed");
+            saveTasks();
+          });
+
+          li.append(span, editBtn, toggleBtn, deleteBtn);
+          taskList.appendChild(li);
+        }
+
+        filterButtons.addEventListener("click", function (event) {
+          if (event.target.tagName === "BUTTON") {
+            updateFilter(event.target.getAttribute("data-filter"));
+          }
+        });
+
+        function updateFilter(filterValue) {
+          document.querySelectorAll(".task-item").forEach((task) => {
+            if (filterValue === "all") {
+              task.style.display = "";
+            } else if (
+              filterValue === "completed" &&
+              !task.classList.contains("completed")
+            ) {
+              task.style.display = "none";
+            } else if (
+              filterValue === "pending" &&
+              task.classList.contains("completed")
+            ) {
+              task.style.display = "none";
+            } else {
+              task.style.display = "";
+            }
+          });
+        }
+
+        function saveTasks() {
+          const tasks = [];
+          document.querySelectorAll(".task-item").forEach((task) => {
+            tasks.push({
+              text: task.querySelector(".task-text").textContent,
+              completed: task.classList.contains("completed"),
+            });
+          });
+          localStorage.setItem("tasks", JSON.stringify(tasks));
+        }
+
+        function loadTasks() {
+          const tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+          tasks.forEach((task) => addTask(task.text, task.completed));
+        }
+      });
+    </script>
+  </body>
+</html>

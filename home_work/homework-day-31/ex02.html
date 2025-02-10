@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Xây dựng slide show với dữ liệu cho trước</title>
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font-family: sans-serif;
+        background-color: #fafafa;
+        display: flex;
+        align-items: center;
+        height: 100vh;
+        flex-direction: column;
+      }
+      .slide-show {
+        position: relative;
+        width: 800px;
+        height: 400px;
+        overflow: hidden;
+        border-radius: 10px;
+      }
+      #Prevbtn,
+      #Nextbtn {
+        position: absolute;
+        border: none;
+        color: #fff;
+        font-size: 20px;
+        background-color: rgba(0, 0, 0, 0.4);
+        z-index: 100;
+        padding: 8px 12px;
+        cursor: pointer;
+      }
+      #Prevbtn {
+        top: 50%;
+        left: 0%;
+      }
+      #Nextbtn {
+        top: 50%;
+        right: 0;
+      }
+      #slide-container {
+        transition: all 0.5s ease-in-out;
+      }
+      .slide {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        display: none;
+      }
+      .slide.active {
+        display: block;
+      }
+      .indicator {
+        margin-top: 10px;
+        font-size: 18px;
+      }
+      .dots {
+        display: flex;
+        margin-top: 10px;
+      }
+      .dot {
+        width: 12px;
+        height: 12px;
+        margin: 5px;
+        background: gray;
+        border-radius: 50%;
+        cursor: pointer;
+        transition: 0.3s;
+      }
+      .dot.active {
+        background: black;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Xây dựng slide show với dữ liệu cho trước</h1>
+
+    <div class="slide-show">
+      <button id="Prevbtn" onclick="prevSlide()">
+        <i class="bx bx-skip-previous"></i>
+      </button>
+      <button id="Nextbtn" onclick="nextSlide()">
+        <i class="bx bx-skip-next"></i>
+      </button>
+      <div id="slide-container"></div>
+    </div>
+    <div class="indicator">Slide <span id="currentSlide">1</span></div>
+    <div class="dots" id="dotsContainer"></div>
+    <script>
+      const slidesData = [
+        {
+          image: "https://picsum.photos/id/25/800/400",
+          title: "Slide 1",
+        },
+        {
+          image: "https://picsum.photos/id/27/800/400",
+          title: "Slide 2",
+        },
+        {
+          image: "https://picsum.photos/id/28/800/400",
+          title: "Slide 3",
+        },
+        {
+          image: "https://picsum.photos/id/29/800/400",
+          title: "Slide 4",
+        },
+      ];
+
+      const slidersContainer = document.getElementById("slide-container");
+      const dotsContainer = document.getElementById("dotsContainer");
+      const currentSliders = document.getElementById("currentSlide");
+      let currentIndex = 0;
+      let autoSlideInterval;
+
+      slidesData.forEach((slide, index) => {
+        const slideElement = document.createElement("div");
+        slideElement.classList.add("slide");
+        if (index === 0) slideElement.classList.add("active");
+
+        slideElement.innerHTML = `
+    <img src="${slide.image}" alt="Slide ${index + 1}">
+    `;
+        // console.log(`<img src="${slide.image}" alt="Slide ${index + 1}">`);
+        slidersContainer.appendChild(slideElement);
+
+        const dot = document.createElement("div");
+        dot.classList.add("dot");
+        if (index === 0) dot.classList.add("active");
+        dot.setAttribute("onclick", `showSlide(${index})`);
+        dotsContainer.appendChild(dot);
+      });
+
+      const slides = document.querySelectorAll(".slide");
+      const dots = document.querySelectorAll(".dot");
+
+      const showSlide = (index) => {
+        slides.forEach((slide) => {
+          slide.classList.remove("active");
+        });
+        dots.forEach((dot) => {
+          dot.classList.remove("active");
+        });
+        slides[index].classList.add("active");
+        dots[index].classList.add("active");
+        currentIndex = index;
+        currentSliders.textContent = index + 1;
+      };
+
+      const nextSlide = () => {
+        currentIndex = (currentIndex + 1) % slides.length;
+        showSlide(currentIndex);
+        resetAutoSlide();
+      };
+
+      const prevSlide = () => {
+        currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+        showSlide(currentIndex);
+        resetAutoSlide();
+      };
+
+      const startAutoSlide = () => {
+        autoSlideInterval = setInterval(nextSlide, 3000);
+      };
+
+      const resetAutoSlide = () => {
+        clearInterval(autoSlideInterval);
+        startAutoSlide();
+      };
+
+      startAutoSlide();
+    </script>
+  </body>
+</html>

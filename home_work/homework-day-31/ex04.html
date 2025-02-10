@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tính Số Chủ Đạo</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        padding: 20px;
+      }
+      input,
+      button {
+        margin: 10px;
+        padding: 10px;
+        font-size: 16px;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Tính Toán Số Chủ Đạo</h2>
+    <label for="birthdate">Nhập ngày sinh của bạn (YYYY-MM-DD):</label>
+    <input type="date" id="birthdate" />
+    <button onclick="calculateLifePathNumber()">Tính toán</button>
+    <h3 id="result"></h3>
+    <p id="description"></p>
+
+    <script>
+      const descriptions = {
+        1: "Bạn là người độc lập, mạnh mẽ và có khả năng lãnh đạo. Bạn có tư duy sáng tạo và luôn tìm cách đạt được mục tiêu của mình.",
+        2: "Bạn là người hòa đồng, nhạy bén và biết lắng nghe. Bạn rất giỏi trong việc xây dựng mối quan hệ và hợp tác.",
+        3: "Bạn sáng tạo, lạc quan và luôn tràn đầy năng lượng. Bạn có khả năng giao tiếp tốt và dễ dàng làm quen với mọi người.",
+        4: "Bạn là người thực tế, có tổ chức và làm việc chăm chỉ. Bạn có khả năng xây dựng nền tảng vững chắc trong công việc và cuộc sống.",
+        5: "Bạn thích tự do, thích khám phá và là người thích mạo hiểm. Bạn có thể đối mặt với thử thách và luôn tìm kiếm sự thay đổi.",
+        6: "Bạn quan tâm đến gia đình, yêu thương và chăm sóc người khác. Bạn là người sống trách nhiệm và luôn quan tâm đến những người thân yêu.",
+        7: "Bạn là người thích suy ngẫm, nghiên cứu và khám phá. Bạn có khả năng phân tích và thích sự yên tĩnh.",
+        8: "Bạn là người kiên trì, có tham vọng và luôn nỗ lực hết mình. Bạn có sức mạnh và khả năng lãnh đạo trong mọi lĩnh vực.",
+        9: "Bạn là người có tấm lòng nhân ái, giúp đỡ và quan tâm đến người khác. Bạn có tính cách giàu tình cảm và thích giúp đỡ cộng đồng.",
+        11: "Bạn có trực giác mạnh mẽ, sáng tạo và có khả năng truyền cảm hứng cho người khác. Bạn mang trong mình năng lượng tinh thần cao.",
+        22: "Bạn là người có tầm nhìn lớn, có khả năng xây dựng và tạo ra những điều vĩ đại. Bạn có khả năng lãnh đạo và tổ chức xuất sắc.",
+        33: "Bạn là người có khả năng chữa lành, mang lại tình yêu thương và giúp đỡ cộng đồng. Bạn có sứ mệnh cao cả trong cuộc sống.",
+      };
+
+      function calculateLifePathNumber() {
+        const birthdate = document.getElementById("birthdate").value;
+        if (!birthdate) {
+          alert("Ngày tháng năm sinh không hợp lệ!");
+          return;
+        }
+        let digits = [];
+        for (let i = 0; i < birthdate.length; i++) {
+          if (!isNaN(birthdate[i]) && birthdate[i] !== "-") {
+            digits.push(parseInt(birthdate[i]));
+          }
+        }
+        // console.log(digits);
+        let lifePathNumber = sumDigits(digits);
+        document.getElementById(
+          "result"
+        ).innerText = `Số chủ đạo của bạn là: ${lifePathNumber}`;
+        document.getElementById("description").innerText =
+          descriptions[lifePathNumber] || "Không có mô tả cho số này";
+      }
+
+      const sumDigits = (digits) => {
+        let sum = 0;
+        for (let num of digits) {
+          sum += num;
+        }
+        while (sum > 9 && sum !== 11 && sum !== 22 && sum !== 33) {
+          let tempSum = 0;
+          let sumStr = sum.toString();
+          for (let i = 0; i < sumStr.length; i++) {
+            tempSum += parseInt(sumStr[i]);
+          }
+          sum = tempSum;
+        }
+        return sum;
+      };
+    </script>
+  </body>
+</html>

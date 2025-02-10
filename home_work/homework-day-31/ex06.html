@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nested Categories</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+      }
+      .menu {
+        list-style: none;
+        padding: 0;
+        width: 100px;
+      }
+      .menu li {
+        position: relative;
+        padding: 10px;
+        height: 20px;
+        cursor: pointer;
+        border: 1px solid #ccc;
+      }
+      .menu li li {
+        left: 70px;
+        padding: 10px;
+      }
+      .submenu {
+        position: relative;
+        display: none;
+        list-style: none;
+        padding-left: 20px;
+        width: 150px;
+      }
+      .menu li:hover > .submenu {
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <ul id="category-menu" class="menu"></ul>
+    <script>
+      const categories = [
+        {
+          id: 1,
+          name: "Electronics",
+          slug: "electronics",
+          children: [
+            {
+              id: 2,
+              name: "Laptops",
+              slug: "laptops",
+              children: [
+                { id: 3, name: "Apple", slug: "apple" },
+                { id: 4, name: "Dell", slug: "dell" },
+              ],
+            },
+            { id: 5, name: "Headphones", slug: "headphones" },
+          ],
+        },
+        {
+          id: 6,
+          name: "Books",
+          slug: "books",
+          children: [
+            {
+              id: 7,
+              name: "Fiction",
+              slug: "fiction",
+              children: [
+                { id: 8, name: "Thrillers", slug: "thrillers" },
+                { id: 9, name: "Mystery", slug: "mystery" },
+              ],
+            },
+            { id: 10, name: "Non-Fiction", slug: "non-fiction" },
+          ],
+        },
+      ];
+
+      function createMenu(items, parentSlug = "") {
+        const ul = document.createElement("ul");
+        ul.classList.add("submenu");
+
+        items.forEach((item) => {
+          const li = document.createElement("li");
+          li.textContent = item.name;
+          li.onclick = (e) => {
+            e.stopPropagation();
+            window.location.href = `http://localhost:5500/${parentSlug}${item.slug}`;
+          };
+
+          if (item.children) {
+            const submenu = createMenu(
+              item.children,
+              `${parentSlug}${item.slug}/`
+            );
+            li.appendChild(submenu);
+          }
+          ul.appendChild(li);
+        });
+        return ul;
+      }
+
+      const menu = document.createElement("ul");
+      menu.classList.add("menu");
+      categories.forEach((category) => {
+        const item = document.createElement("li");
+        item.textContent = category.name;
+        item.appendChild(createMenu(category.children, `${category.slug}/`));
+        menu.appendChild(item);
+      });
+
+      document.getElementById("category-menu").appendChild(menu);
+    </script>
+  </body>
+</html>

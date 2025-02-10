@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>5. Xây dựng menu từ array</title>
+    <style>
+      ul {
+        list-style: none;
+      }
+      a {
+        text-decoration: none;
+      }
+      .menubar {
+        width: 190px;
+      }
+      .menubar ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      .menubar li {
+        position: relative;
+        right: 0;
+        top: 0;
+        border: 1px solid #ccc;
+        padding: 20px;
+      }
+
+      .menubar ul {
+        display: none;
+        position: absolute;
+        right: -148px;
+        top: 0;
+      }
+      .menubar ul ul {
+        position: absolute;
+        right: -119px;
+        top: 0;
+      }
+
+      .menubar li:hover > ul {
+        display: block;
+      }
+
+      .menubar ul ul li {
+        padding: 5px 0;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>5. Xây dựng menu từ array</h1>
+    <script>
+      const categories = [
+        {
+          id: 1,
+          name: "Chuyên mục 1",
+          parent: 0,
+          slug: "chuyen-muc-1",
+        },
+        {
+          id: 2,
+          name: "Chuyên mục 2",
+          parent: 0,
+          slug: "chuyen-muc-2",
+        },
+        {
+          id: 3,
+          name: "Chuyên mục 3",
+          parent: 0,
+          slug: "chuyen-muc-3",
+        },
+        {
+          id: 4,
+          name: "Chuyên mục 2.1",
+          parent: 2,
+          slug: "chuyen-muc-2-1",
+        },
+        {
+          id: 5,
+          name: "Chuyên mục 2.2",
+          parent: 2,
+          slug: "chuyen-muc-2-2",
+        },
+        {
+          id: 6,
+          name: "Chuyên mục 2.3",
+          parent: 2,
+          slug: "chuyen-muc-2-3",
+        },
+        {
+          id: 7,
+          name: "Chuyên mục 3.1",
+          parent: 3,
+          slug: "chuyen-muc-3-1",
+        },
+        {
+          id: 8,
+          name: "Chuyên mục 3.2",
+          parent: 3,
+          slug: "chuyen-muc-3-2",
+        },
+        {
+          id: 9,
+          name: "Chuyên mục 3.3",
+          parent: 3,
+          slug: "chuyen-muc-3-3",
+        },
+        {
+          id: 10,
+          name: "Chuyên mục 2.2.1",
+          parent: 5,
+          slug: "chuyen-muc-2-2-1",
+        },
+        {
+          id: 11,
+          name: "Chuyên mục 2.2.2",
+          parent: 5,
+          slug: "chuyen-muc-2-2-2",
+        },
+      ];
+
+      const buildMenu = (menu) => {
+        const outerMenu = document.createElement("ul");
+        outerMenu.setAttribute("class", "menubar");
+        document.body.appendChild(outerMenu);
+        for (let item of menu) {
+          const li = document.createElement("li");
+          li.setAttribute("id", item.id);
+          li.innerHTML = `<a href="${item.slug}">${item.name}<a>`;
+          if (item.parent === 0) {
+            outerMenu.appendChild(li);
+          } else {
+            const parent = document.getElementById(String(item.parent));
+            let subMenu = parent.getElementsByTagName("ul")[0];
+            if (!subMenu) {
+              subMenu = document.createElement("ul");
+              parent.append(subMenu);
+            }
+            subMenu.appendChild(li);
+          }
+        }
+      };
+      buildMenu(categories);
+    </script>
+  </body>
+</html>
